@@ -1,0 +1,25 @@
+<div>
+  <form [formGroup]="personalInformationForm">
+    <mat-form-field class="form-card__item">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field class="form-card__item">
+      <mat-label>Last Name</mat-label>
+      <input matInput type="text" formControlName="lastName" />
+    </mat-form-field>
+    <mat-form-field class="form-card__item">
+      <mat-label>Age</mat-label>
+      <input matInput type="text" formControlName="age" />
+    </mat-form-field>
+    <mat-form-field class="form-card__item">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" formControlName="email" />
+    </mat-form-field>
+    <mat-form-field class="form-card__item">
+      <mat-label>Phone</mat-label>
+      <input matInput type="text" formControlName="cellphone" />
+    </mat-form-field>
+  </form>
+  <button mat-raised-button color="primary" (click)="savePersonalInformation()">Save</button>
+</div>
