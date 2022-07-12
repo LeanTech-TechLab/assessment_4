@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Store} from "@ngrx/store";
 import {setResidentialInfo} from "@app-core/store/actions/residentialInformation.action";
 import {Router} from "@angular/router";
+import {getResidentialInformation} from "@app-core/store/selectors/residential-information.selector";
+import {ResidentialInformationModel} from "@app-models/app.model";
 
 @Component({
   selector: 'app-residential-information',
@@ -13,11 +15,17 @@ export class ResidentialInformationComponent implements OnInit {
 
   residentialInformationForm: FormGroup;
   constructor(private fb: FormBuilder, private store: Store, private router: Router) {
+    this.store.select(getResidentialInformation).subscribe( result => {
+      this.initForm(result);
+    })
+  }
+
+  initForm(formData: ResidentialInformationModel) {
     this.residentialInformationForm = this.fb.group({
-      street: ['', Validators.required],
-      neighborhood: ['', Validators.required],
-      department: ['', Validators.required],
-      city: ['', Validators.required]
+      street: [formData.street, Validators.required],
+      neighborhood: [formData.neighborhood, Validators.required],
+      department: [formData.department, Validators.required],
+      city: [formData.city, Validators.required]
     })
   }
 

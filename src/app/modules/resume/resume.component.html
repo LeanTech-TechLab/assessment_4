@@ -5,8 +5,14 @@
     <p>Age: {{personalInformationData.age}}</p>
     <p>Email: {{personalInformationData.email}}</p>
     <p>Cellphone: {{personalInformationData.cellphone}}</p>
+    <button mat-raised-button color="primary" (click)="editForms('/personal-information')">Edit</button>
   </div>
+  <br>
   <div class="resume__residential-information">
-
+    <p>Street: {{residentialInformationData.street}}</p>
+    <p>neighborhood: {{residentialInformationData.neighborhood}}</p>
+    <p>department: {{residentialInformationData.department}}</p>
+    <p>City: {{residentialInformationData.city}}</p>
+    <button mat-raised-button color="primary" (click)="editForms('/residential-information')">Edit</button>
   </div>
 </div>
